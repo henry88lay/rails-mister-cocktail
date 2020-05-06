@@ -1,12 +1,19 @@
-<h1>Front Page</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/1600x900/?cocktails);">
+  <div class="container">
+    <h1>The NoMad Collection</h1>
+    <p>A Personal collections of the finest and classest cocktails</p>
+  </div>
+</div>
+<hr>
+<% @cocktails.each do |cocktail| %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://source.unsplash.com/1600x900/?drinks" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= cocktail.name %></h5>
+    <%= link_to "What's in it?", cocktail, class: "btn btn-primary" %>
+  </div>
+</div>
+<br>
+ <% end %>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li>
-      <p><%= cocktail.name %></p>
-      <p><%= link_to 'Show', cocktail %></p>
-    </li>
-  <% end %>
-</ul>
 
-  <%= link_to "Add a cocktail", new_cocktail_path %>
